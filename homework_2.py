@@ -41,3 +41,15 @@ person = Person("Анна Георгиевна", 1980, "бухгалтером")
 people = [classmate3, bro3, person]
 for person in people:
     person.introduce()
+
+# доп задание 2:
+class BestFriend(Friend):
+    def __init__(self, hobby, name, birth_year, occupation, shared_memory):
+        super().__init__(hobby, name, birth_year, occupation)
+        self.shared_memory = shared_memory
+    def introduce(self):
+        super().introduce()
+        print(f"люблю {self.shared_memory}")
+
+bestbro = BestFriend("смотреть фильмы или сериалы", "Саадат", 2006,"беззработной тюленью", "ходить с тобой в кино")
+bestbro.introduce()
