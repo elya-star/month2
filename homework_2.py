@@ -5,7 +5,7 @@ class Person:
         self.occupation = occupation
         self.higher_education = False
     def introduce(self):
-        print(f"My name is {self.name}, I born in {self.birth_year}, my occupation is {self.occupation}, my higher education is {self.higher_education}")
+        print(f"Меня зовут {self.name}, Я родилась в {self.birth_year} году, работаю: {self.occupation}, my higher education is {self.higher_education}")
 
 class Classmate(Person):
     def __init__(self, group_name, name, birth_year, occupation):
@@ -33,3 +33,11 @@ bro1 = Friend("рисовать", "Кими", 2006, "профессиональ�
 bro1.introduce()
 bro2 = Friend("создавать парфюм", "Жанна", 2007, "дизайнером")
 bro2.introduce()
+
+# доп задание 1:
+classmate3 = Classmate("P1", "Володя", 2005, "учителем")
+bro3 = Friend("вязать крючком", "Эля", 2007, "няней")
+person = Person("Анна Георгиевна", 1980, "бухгалтером")
+people = [classmate3, bro3, person]
+for person in people:
+    person.introduce()
