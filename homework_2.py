@@ -9,18 +9,14 @@ class Person:
 
 class Classmate(Person):
     def __init__(self, group_name, name, birth_year, occupation):
+        super().__init__(name, birth_year, occupation)
         self.group_name = group_name
-        self.name = name
-        self.birth_year = birth_year
-        self.occupation = occupation
     def introduce(self):
         print(f"Привет, меня зовут {self.name},родился в {self.birth_year}, состою в группе {self.group_name}, работаю {self.occupation}")
 class Friend(Person):
     def __init__(self, hobby, name, birth_year, occupation):
+        super().__init__(name, birth_year, occupation)
         self.hobby = hobby
-        self.name = name
-        self.birth_year = birth_year
-        self.occupation = occupation
     def introduce(self):
         print(f"Привет, меня зовут {self.name}, родилась в {self.birth_year},работаю {self.occupation} и у меня есть хобби: {self.hobby}")
 
