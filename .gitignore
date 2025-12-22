@@ -2,3 +2,7 @@
 .env
 __pycache__/
 test.txt
+
+*.sqlite
+*.db
+*.sqlite3
