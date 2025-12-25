@@ -22,6 +22,30 @@ def add_books(conn, name, author, publication_year, genre, number_of_pages, numb
                  (name, author, publication_year, genre, number_of_pages, number_of_copies))
     conn.commit()
 
+def delete_books(conn, book_id):
+    conn.execute("""
+    DELETE FROM books WHERE id = ?
+    """,
+                 (book_id,))
+    conn.commit()
+
+def update_book(conn, book_id, new_name):
+    conn.execute("""
+    UPDATE books 
+    SET name = ? 
+    WHERE id = ?
+    """,
+                 (new_name, book_id))
+    conn.commit()
+
+def get_all_books(conn):
+    result = conn.execute("""
+    SELECT * FROM books
+    ORDER BY publication_year 
+    """)
+    return result.fetchall()
+    
+
 if __name__ == '__main__':
     conn = sqlite3.connect('books.db')
     cursor = conn.cursor()
@@ -37,5 +61,9 @@ if __name__ == '__main__':
     add_books(conn, "Dracula", "Bram Stoker", 1897, "Gothic Horror", 418, 3)
     add_books(conn, "A Brief History of Time", "Stephen Hawking", 1988, "Popular Science", 212, 4)
     add_books(conn, "Dune", "Frank Herbert", 1965, "Epic Science Fiction", 412, 4)
+
+    update_book(conn, "1", "Гарри Потер")
+    delete_books(conn, "2")
+    get_all_books(conn)
 
     conn.close()
